@@ -1,0 +1,60 @@
+############Q1
+
+The most frequently occurring primary type (i.e. theft, narcotics etc..)
+
+
+
+
+##########Q2
+
+Districts with the most reported incidents
+
+
+
+
+###Q3
+
+Blocks with the most reported incidents
+
+
+
+
+#####Q4
+
+Blocks with the most reported incidents, grouped by primary type
+
+
+
+
+
+#####Q5
+
+
+A look at the date and time when the highest number of incidents where reported
+
+
+
+
+
+#######Q6
+
+
+Arrests by primary type
+
+
+
+
+
+#####Q7
+
+Arrests by district
+
+
+
+
+
+#####Q8
+
+A look at the date and time when the highest number of arrests took place
+
+
