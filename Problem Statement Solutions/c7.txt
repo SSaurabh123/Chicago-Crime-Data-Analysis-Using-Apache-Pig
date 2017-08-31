@@ -1,0 +1,16 @@
+crime = load '/user/cloudera/ChicagoCrime/Crime2013.csv' Using PigStorage('\t') as(b:chararray, id:int,casenumber:chararray,date:chararray,block:chararray,iucr:int,primarytype:chararray,description:chararray,
+locationdescription:chararray,arrest:boolean,domestic:boolean,beat:int, district:int,ward:int,communityarea:int,fbicode:chararray,xcoordinate:int,ycoordinate:int,year:int,
+updatedon:chararray,latitude:float,longitude:float,location:chararray);
+
+crime_filter = FILTER crime BY arrest==TRUE;
+
+crime_grp_dist = GROUP crime_filter BY district;
+
+crime_grp_dist_cntd = FOREACH crime_grp_dist GENERATE  group as district, COUNT(crime_filter.id) AS cnt;
+
+srtd = ORDER crime_grp_dist_cntd BY cnt DESC;
+
+DUMP srtd;
+
+Store srtd into '/user/cloudera/ChicagoCrime/C7';
+

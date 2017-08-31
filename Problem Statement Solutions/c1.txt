@@ -1,0 +1,20 @@
+crime = load '/user/cloudera/ChicagoCrime/Crime2013.csv' Using PigStorage('\t') as (b:chararray,
+id:int,casenumber:chararray,date:chararray,block:chararray,iucr:int,primarytype:chararray,description:chararray,
+locationdescription:chararray,arrest:boolean,domestic:boolean,beat:int,district:int,ward:int,communityarea:int,
+fbicode:chararray,xcoordinate:int,ycoordinate:int,
+year:int,updatedon:chararray,latitude:float,
+
+longitude:float,location:chararray);
+
+crime1 = GROUP crime BY primarytype;
+
+crime2 = FOREACH crime1 GENERATE group as primarytype,COUNT(crime.id) AS cnt;
+
+srtd = ORDER crime2 BY cnt DESC;
+
+DUMP srtd;
+
+Store srtd into '/user/cloudera/ChicagoCrime/C1';
+ 
+
+
